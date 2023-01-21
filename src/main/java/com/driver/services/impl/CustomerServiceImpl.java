@@ -101,14 +101,9 @@ public class CustomerServiceImpl implements CustomerService {
 		cab.setAvailable(true);
 
 		tripBooking.setStatus(TripStatus.CANCELED);
-		tripBookingList1.add(tripBooking);
-		tripBookingList.add(tripBooking);
-
-		customer.setTripBookingList(tripBookingList);
-		driver.setTripBookingList(tripBookingList1);
-		//customerRepository2.save(customer);
+		customerRepository2.save(customer);
 		driverRepository2.save(driver);
-
+        tripBookingRepository2.save(tripBooking);
 
 
 	}
@@ -130,13 +125,13 @@ public class CustomerServiceImpl implements CustomerService {
 		cab.setAvailable(true);
 
 		tripBooking.setStatus(TripStatus.COMPLETED);
-		tripBookingList1.add(tripBooking);
-		tripBookingList.add(tripBooking);
 
-		driver.setTripBookingList(tripBookingList1);
-		customer.setTripBookingList(tripBookingList);
-		//customerRepository2.save(customer);
+
+
+
+		customerRepository2.save(customer);
 		driverRepository2.save(driver);
+		tripBookingRepository2.save(tripBooking);
 
 
 
