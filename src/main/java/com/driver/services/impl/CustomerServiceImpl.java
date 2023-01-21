@@ -104,7 +104,7 @@ public class CustomerServiceImpl implements CustomerService {
 		tripBooking.setStatus(TripStatus.CANCELED);
 		customerRepository2.save(customer);
 		driverRepository2.save(driver);
-        tripBookingRepository2.save(tripBooking);
+        tripBookingRepository2.delete(tripBooking);
 
 
 	}
