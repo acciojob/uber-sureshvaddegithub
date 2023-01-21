@@ -8,7 +8,7 @@ import java.util.List;
 public class Customer{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int customerId;
     private String mobile;
     private String password;
