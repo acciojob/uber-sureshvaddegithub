@@ -48,8 +48,10 @@ public class CustomerServiceImpl implements CustomerService {
 		List<Driver> driverList = driverRepository2.findAll();
 
 		for (Driver driver1:driverList){
-			if(driver == null || driver.getDriverId()>driver1.getDriverId()){
-				driver = driver1;
+			if(driver1.getCab().getAvailable()) {
+				if (driver == null || driver.getDriverId() > driver1.getDriverId()) {
+					driver = driver1;
+				}
 			}
 		}
         if(driver == null){
@@ -98,7 +100,7 @@ public class CustomerServiceImpl implements CustomerService {
 	public void completeTrip(Integer tripId){
 		//Complete the trip having given trip Id and update TripBooking attributes accordingly
 		TripBooking tripBooking = tripBookingRepository2.findById(tripId).get();
-		tripBooking.setStatus(TripStatus.CONFIRMED);
+		tripBooking.setStatus(TripStatus.COMPLETED);
 		tripBooking.getDriver().getCab().setAvailable(true);
 		tripBookingRepository2.save(tripBooking);
 
